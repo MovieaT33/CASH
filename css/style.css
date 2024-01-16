@@ -1,0 +1,99 @@
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #f0f2f5;
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 120vh;
+}
+
+.profile {
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    max-width: 600px;
+    width: 33.3%;
+    margin: 20px;
+    position: relative;
+}
+
+.profile-header {
+    background-color: #4267B2;
+    color: rgba(255, 255, 255, 0.8);
+    padding: 20px;
+    text-align: center;
+    height: 180px;
+}
+
+
+.profile-header img {
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    margin-bottom: 10px;
+}
+
+.profile-content {
+    padding: 20px;
+    color: #555;
+    text-align: center;
+}
+
+h1, p {
+    margin: 0;
+    color: #333;
+}
+
+.traits, .status {
+    margin-top: 20px;
+    text-align: left;
+}  
+
+.traits p, .status p {
+    margin: 8px 0;
+    color: #555;
+}
+
+.footer-text {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    padding: 10px;
+    background-color: #4267B2;
+    color: rgba(255, 255, 255, 0.8);
+}
+
+.copyright-text {
+    position: fixed;
+    bottom: 0;
+    right: 0;
+    padding: 10px;
+    background-color: #4267B2;
+    color: rgba(255, 255, 255, 0.8);
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+}
+
+th, td {
+    border: 1px solid #ddd;
+    padding: 8px;
+    text-align: left;
+}
+
+th {
+    background-color: #f2f2f2;
+}
+
+.profiles {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
