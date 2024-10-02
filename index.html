@@ -96,13 +96,18 @@
                 "Унікальні об'єкти": "https://www.canva.com/design/DAGF4MyaOqE/-393TGv7DuLlNeVFl0QvrQ/view?utm_content=DAGF4MyaOqE&utm_campaign=designshare&utm_medium=link&utm_source=editor",
                 "Вакула": "https://movieat33.github.com/Vakula/vakula.index"
             }
+            const url = urls[project];
 
             if (userTable.hasOwnProperty(username)) {
                 if (sha3_512(password) === userTable[username]) {
                     if (class_number === "7-А") {
-                        window.location.href = urls[project];
+                        if (url != undefined) {
+                            window.location.href = urls[project];
+                        } else {
+                            alert("Проєкт не знайдено")
+                        }
                     } else {
-                        alert("Неправильний клас");
+                        alert("Неправильний клас. Використовуйте україньску розкладку.");
                     }
                 } else {
                     alert("Неправильний пароль. Спробуйте ще раз.");
