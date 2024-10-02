@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        body {
+            background-color: #f0f0f0;
+            color: #333;
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+
+        .login-container {
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        h1 {
+            text-align: center;
+            font-size: 24px;
+            margin-bottom: 20px;
+        }
+
+        form {
+            display: flex;
+            flex-direction: column;
+        }
+
+        label, input {
+            margin-bottom: 10px;
+            font-size: 16px;
+        }
+
+        input[type="text"], input[type="password"] {
+            padding: 8px;
+            font-size: 14px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+
+        button {
+            padding: 10px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+
+        button:hover {
+            background-color: #45a049;
+        }
+    </style>
+    <title>Login Page</title>
+</head>
+<body>
+    <div class="login-container">
+        <h1>Логін</h1>
+        <form id="loginForm">
+            <label for="username">Ім'я користувача:</label>
+            <input type="text" id="username" required>
+            <label for="password">Пароль:</label>
+            <input type="password" id="password" required>
+            <label for="project">Проєкт:</label>
+            <input type="text" id="project" required>
+            <button type="submit">Увійти</button>
+        </form>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/js-sha3/0.8.0/sha3.min.js"></script>
+    <script>
+        const userTable = {
+            "Nicolas": "d80cd8f46e23939bc0b83b27092e2cf020b20343af78ca0a40dbfeefefeb3f7a3edee54bb3d3b7218e7bf6fa46efb114c68b91ed96890341944ca46bbcd7be31",
+            "N": "f78f79216f7627956a0fe1741e035b8d482334c9ca66dae77993eb9edf075f7b4bb76ed8764aa455c754e608cf4fa539612279791a84c6f046d41c67feab4ef1",
+            "Nicolas-2": "be7041770b78e4866750b4cf77359c8906cb86c3b632888cb683b207c260a65eb1f12cee1d0563cc3bc65307bc135e2021bfccb2dcf406bd8e39910f8b0d0133"
+        };
+
+        document.getElementById("loginForm").addEventListener("submit", function (event) {
+            event.preventDefault();
+            const username = document.getElementById("username").value;
+            const password = document.getElementById("password").value;
+            const project  = document.getElementById("project").value;
+            const urls = {
+                "Ecology": "https://example.com/ecology",
+                "Unical": "https://example.com/unical",
+                "Stylish": "https://example.com/stylish"
+            };
+
+            if (userTable.hasOwnProperty(username)) {
+                if (sha3_512(password) === userTable[username]) {
+                    window.location.href = urls[project];
+                } else {
+                    alert("Неправильний пароль. Спробуйте ще раз.");
+                }
+            } else {
+                alert("Користувача не знайдено.");
+            }
+        });
+    </script>
+</body>
+</html>
