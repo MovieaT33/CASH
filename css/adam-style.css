@@ -16,13 +16,13 @@ body {
     display: flex;
     flex-direction: column;
     max-width: 600px;
-    width: 33.3%;
+    width: 66.6%;
     margin: 20px;
     position: relative;
 }
 
 .profile-header {
-    background-color: #4267B2;
+    background-color: #42b246;
     color: rgba(255, 255, 255, 0.8);
     padding: 20px;
     text-align: center;
@@ -63,7 +63,7 @@ h1, p {
     bottom: 0;
     right: 0;
     padding: 10px;
-    background-color: #4267B2;
+    background-color: #42b246;
     color: rgba(255, 255, 255, 0.8);
 }
 
@@ -72,7 +72,7 @@ h1, p {
     bottom: 0;
     right: 0;
     padding: 10px;
-    background-color: #4267B2;
+    background-color: #42b246;
     color: rgba(255, 255, 255, 0.8);
 }
 
