@@ -97,22 +97,19 @@
                 "Вакула": "https://movieat33.github.com/Vakula/vakula.index"
             }
 
-            if (!userTable.hasOwnProperty(username)) {
+            if (userTable.hasOwnProperty(username)) {
+                if (sha3_512(password) === userTable[username]) {
+                    if (class_number === "7-А") {
+                        window.location.href = urls[project];
+                    } else {
+                        alert("Неправильний клас");
+                    }
+                } else {
+                    alert("Неправильний пароль. Спробуйте ще раз.");
+                }
+            } else {
                 alert("Користувача не знайдено.");
-                location.reload();
             }
-
-            if (sha3_512(password) !== userTable[username]) {
-                alert("Неправильний пароль. Спробуйте ще раз.");
-                location.reload();
-            }
-
-            if (class_number !== "7-А") {
-                alert("Неправильний клас");
-                location.reload();
-            }
-
-            window.location.href = urls[project];
         });
     </script>
 
