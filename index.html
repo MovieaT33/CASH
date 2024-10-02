@@ -88,7 +88,7 @@
             event.preventDefault();
             const username = document.getElementById("username").value;
             const password = document.getElementById("password").value;
-            const class_number = document.getElementById("class_number").value;
+            const class_number = document.getElementById("class-number").value;
             const project  = document.getElementById("project").value;
 
             const urls = {
@@ -97,15 +97,19 @@
                 "Вакула": "https://movieat33.github.com/Vakula/vakula.index"
             }
 
-            if (userTable.hasOwnProperty(username)) {
-                if (sha3_512(password) === userTable[username]) {
-                    window.location.href = urls[project];
-                } else {
-                    alert("Неправильний пароль. Спробуйте ще раз.");
-                }
-            } else {
+            if (!userTable.hasOwnProperty(username)) {
                 alert("Користувача не знайдено.");
             }
+
+            if (sha3_512(password) !== userTable[username]) {
+                alert("Неправильний пароль. Спробуйте ще раз.");
+            }
+
+            if (class_number !== "7-А") {
+                alert("Неправильний клас");
+            }
+
+            window.location.href = urls[project];
         });
     </script>
 
