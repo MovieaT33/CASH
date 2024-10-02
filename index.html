@@ -99,14 +99,17 @@
 
             if (!userTable.hasOwnProperty(username)) {
                 alert("Користувача не знайдено.");
+                location.reload();
             }
 
             if (sha3_512(password) !== userTable[username]) {
                 alert("Неправильний пароль. Спробуйте ще раз.");
+                location.reload();
             }
 
             if (class_number !== "7-А") {
                 alert("Неправильний клас");
+                location.reload();
             }
 
             window.location.href = urls[project];
