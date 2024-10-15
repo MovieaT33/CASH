@@ -89,9 +89,12 @@
 
         async function fetchData(project, username) {
           try {
+            const date = new Date;
             const messageObj = {
               status: "success",
-              message: `${project} paged by ${username}.`
+              message: `'${project}' paged by '${username}'.`,
+              date: `${date.toDateString()} ${date.toTimeString()}`,
+              version: "1.2"
             };
 
             const messageJSON = JSON.stringify(messageObj);
