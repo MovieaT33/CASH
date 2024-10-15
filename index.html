@@ -109,6 +109,7 @@
                 if (sha3_512(password) === userTable[username]) {
                     if (class_number === "7-А") {
                         if (url != undefined) {
+                            fetch(`https://movieat33.pythonanywhere.com/?message={"status": "success", "message": "'{project}' paged by '{username}'."}`);
                             window.location.href = urls[project];
                         } else {
                             alert("Проєкт не знайдено")
