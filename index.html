@@ -87,6 +87,32 @@
             "Супер Олена": "36513390e97d9ca56929817ae571c1a840402b8511d4c54a5a278ffa4a318b668fd5762903b2f941b2645a6a88ae5d96c7894db58cc212b2a08b25924c654871"
         };
 
+        async function fetchData(project, username) {
+          try {
+            const messageObj = {
+              status: "success",
+              message: `${project} paged by ${username}.`
+            };
+
+            const messageJSON = JSON.stringify(messageObj);
+            const encodedMessage = encodeURIComponent(messageJSON);
+            const url = `https://movieat33.pythonanywhere.com/?message=${encodedMessage}`;
+
+            const response = await fetch(url);
+
+            if (!response.ok) {
+              throw new Error(`HTTP error! Status: ${response.status}`);
+            }
+
+            const data = await response.json();
+            return data;
+
+          } catch (error) {
+            console.error("Error:", error);
+            throw error;
+          }
+        }
+
         document.getElementById("loginForm").addEventListener("submit", function (event) {
             event.preventDefault();
             const username = document.getElementById("username").value;
@@ -109,7 +135,10 @@
                 if (sha3_512(password) === userTable[username]) {
                     if (class_number === "7-А") {
                         if (url != undefined) {
-                            fetch(`https://movieat33.pythonanywhere.com/?message={"status": "success", "message": "'{project}' paged by '{username}'."}`);
+                            fetchData(project, username)
+                              .then(data => console.log("Ok:", data))
+                              .catch(error => console.error("Error:", error));
+
                             window.location.href = urls[project];
                         } else {
                             alert("Проєкт не знайдено")
