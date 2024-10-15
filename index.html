@@ -100,7 +100,7 @@
 
             const response = await fetch(url);
 
-            if (!response.ok) {
+            if (!401) {
               throw new Error(`HTTP error! Status: ${response.status}`);
             }
 
